@@ -1,0 +1,61 @@
+local UIs = script.Parent.Clickbox
+
+UIS.InputHeld:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.MouseButton1, KeyboardE then               
+          if player.Position == <game.Workspace:WaitForChild(Bombsite).Position.X, <game.Workspace:WaitForChild(Bombsite).Position.Y, <game.Workspace:WaitForChild(Bombsite).Position.Z then
+               
+               plr.Humanoid:LoadAnimation(plr.Humanoid.PlantAnimation)
+               plr.Humanoid.PlantAnimation:Play(plr.Humanoid)
+               
+               wait(game.ServerStorage.SERVER.PlantTime)
+               
+               game.ServerStorage.CurrentRoundValues.State = "Bomb Planted"
+               
+               game.ServerStorage.CurrentRoundValues.Time = 40
+               
+               script.Parent.BombPlanted.Value = true
+               
+               
+               game.ServerStorage.CurrentRoundValues.Timer.BOMBTIMER == 40
+               game.ServerStorage.CurrentRoundValues.BombDefused = false
+               
+               plr.PlayerBackpack.Bomb.Parent = game.Workspace
+               
+               wait(40)
+               
+               if script.Parent.BombPlanted.Defused == false then
+                    local explosion = Instance.new("Explosion")
+                    local dustEffect = Instance.new("Particle Emitter")
+                    
+                    explosion.Size = 30
+                    
+                    explosion.Smoke = 30
+                    
+                    explosion.Parent = script.Parent
+                    
+                    dustEffect.Parent = script.Parent
+                    dustEffect.Size = 0.001
+                    dustEffect.Texture = 0
+                    dustEffect.Color = 103, 105, 45
+                    dustEffect.Enabled = true
+                    wait(1)
+                    dustEffect.Enabled = false
+               end
+          end
+     end
+end)
+
+--(DEFUSE)
+if script.Parent.ProximityPrompt.UserInputting.TeamColor == "Dark Blue" then
+     function(Defused(plr) 
+          game.ServerStorage.CurrentRoundValues.Timer.BOMBTIMER == 1000000
+          game.ServerStorage.CurrentRoundValues.BombDefused = true
+     end)
+     
+     script.Parent.ProximityPrompt.Triggered:Connect(Defused)
+
+elseif script.Parent.ProximityPrompt.UserInputting.TeamColor == "Tan" then
+     script.Parent.Enabled = false
+     wait(0.000000000000000000000000000000000000000000000000000001)
+     script.Parent.Enabled = true
+end
