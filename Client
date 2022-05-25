@@ -1,7 +1,0 @@
-local UIs = script.Parent.Clickbox
-
-UIS.InputHeld:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1, KeyboardE then               
-
-	end
-end)
