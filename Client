@@ -1,19 +1,126 @@
 local UIS = game:GetService("UserInputService")
-local Mouse = game.Players.LocalPlayer:GetMouse()
+local plr = game.Players.LocalPlayer
+local player = game.Workspace[plr]
 
-if script.Parent.Enabled == true then
-     if game.ServerStorage.Values.Gamemode.Value == Creative then
-          UIS.InputEnded:Connect(function(input)
-               if input.UserInputType == Enum.UserInputType.MouseButton1 then               
-                    local Block = script.Parent.Block.Value:Duplicate()
-               
-                    Block.Position = Mouse.CursorPosition
-               end
-          end)
-     
-          UIS.InputEnded:Connect(function(input)
-               if input.UserInputType == Enum.UserInputType.MouseButton2 then
-                    Mouse.CursorPosition:GetNearestChild("Part", script.Parent.Block.BlockName.Value):Destroy
-               end
-          end)
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.Keyboard1 then               
+          
+          plr.PlayerBackpack:WaitForChild(Primary).Enabled = true
+          
      end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.Keyboard2 then               
+          
+          plr.PlayerBackpack:WaitForChild(Secondary).Enabled = true
+          
+     end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.Keyboard3 then               
+          
+          plr.PlayerBackpack:WaitForChild(Knife).Enabled = true
+          
+     end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.Keyboard4 then               
+          
+          plr.PlayerBackpack:WaitForChild(Grenade, Grenade, Grenade, Bomb):Cycle
+          
+     end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.KeyboardQ then               
+          
+          plr.PlayerBackpack:WaitForChild(ItemEnabled).Parent[plr.PlayerBackpack:WaitForChild(ItemEnabled)-1]
+          
+     end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.KeyboardE then               
+          
+          if plr.Position == game.Workspace:WaitForChild(BuyZone).Position.X, game.Workspace:WaitForChild(BuyZone).Position.Y, game.Workspace:WaitForChild(BuyZone).Position.Z
+               if game.ServerStorage.BuyTimeRemaining == >0 then
+                    if plr.TeamColor == "Tan" then 
+                         plr.PlayerGUI.TBuyMenu.Enabled = true 
+                    elseif plr.TeamColor == "Dark Blue" then
+                         plr.PlayerGUI.CTBuyMenu.Enabled = true
+                    end
+               end
+          else
+               plr.PlayerBackpack:WaitForChild(ItemEnabled).Parent[plr.PlayerBackpack:WaitForChild(ItemEnabled)+1]
+          end
+     end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.KeyboardF then               
+          
+          if plr.Position.x,y,z == game.Workspace:WaitForChild(Door, GarageDoor).x,y,z then
+               Position.Parent.OpenSound:Play()
+               
+               local open=false
+               
+               if open==false then
+                    if Position.Parent.Name == "Door" then
+                         while true do
+                              if swinging==true then
+                                   wait(0.001)
+                                   Position.Parent.Door.Rotation = Position.Parent.Door.Rotation+0.01
+                              end
+                         end
+                    elseif Position.Parent.Name == "GarageDoor" then
+                         while true do 
+                              if swinging==true then
+                                   wait(0.001)
+                                   Position.Parent.GarageDoor.Position = Position.Parent.GarageDoor.Position.Y+0.01
+                              end
+                         end
+                    end
+                    local open=true
+                    
+                    if Position.Parent.Door.Rotation == 90 then
+                         swinging=false
+                    end
+               elseif open==true then
+                    if Position.Parent.Name == "Door" then
+                         while true do
+                              if swinging==true then
+                                   wait(0.001)
+                                   Position.Parent.Door.Rotation = Position.Parent.Door.Rotation-0.01
+                              end
+                         end
+                    elseif Position.Parent.Name == "GarageDoor" then
+                         while true do 
+                              if swinging==true then
+                                   wait(0.001)
+                                   Position.Parent.GarageDoor.Position = Position.Parent.GarageDoor.Position.Y-0.01
+                              end
+                         end
+                    end
+               end
+          end
+     end
+end)
+
+
+UIS.InputEnded:Connect(function(input)
+     if input.UserInputType == Enum.UserInputType.KeyboardX then               
+          
+          
+          
+     end
+end)
