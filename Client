@@ -5,18 +5,3 @@ UIS.InputHeld:Connect(function(input)
 
 	end
 end)
-
---(DEFUSE)
-if script.Parent.ProximityPrompt.UserInputting.TeamColor == "Dark Blue" then
-	function(Defused(plr) 
-    	        game.ServerStorage.CurrentRoundValues.Timer.BOMBTIMER == 1000000
-                game.ServerStorage.CurrentRoundValues.BombDefused = true
-        end)
-        
-    script.Parent.ProximityPrompt.Triggered:Connect(Defused)
-
-elseif script.Parent.ProximityPrompt.UserInputting.TeamColor == "Tan" then
-        script.Parent.Enabled = false
-        wait(0.000000000000000000000000000000000000000000000000000001)
-        script.Parent.Enabled = true
-end
