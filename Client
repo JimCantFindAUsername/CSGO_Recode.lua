@@ -1,0 +1,19 @@
+local UIS = game:GetService("UserInputService")
+local Mouse = game.Players.LocalPlayer:GetMouse()
+
+if script.Parent.Enabled == true then
+     if game.ServerStorage.Values.Gamemode.Value == Creative then
+          UIS.InputEnded:Connect(function(input)
+               if input.UserInputType == Enum.UserInputType.MouseButton1 then               
+                    local Block = script.Parent.Block.Value:Duplicate()
+               
+                    Block.Position = Mouse.CursorPosition
+               end
+          end)
+     
+          UIS.InputEnded:Connect(function(input)
+               if input.UserInputType == Enum.UserInputType.MouseButton2 then
+                    Mouse.CursorPosition:GetNearestChild("Part", script.Parent.Block.BlockName.Value):Destroy
+               end
+          end)
+     end
