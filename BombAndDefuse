@@ -1,4 +1,4 @@
-local UIs = script.Parent.Clickbox
+local UIS = game:GetService("UserInputService")
 
 UIS.InputHeld:Connect(function(input)
      if input.UserInputType == Enum.UserInputType.MouseButton1, KeyboardE then               
