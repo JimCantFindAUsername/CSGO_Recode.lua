@@ -242,14 +242,19 @@ if game.ServerStorage.Gamemode == "Competative" then
                Player.OrderDied = game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value + game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value
                game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value = game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value - 1
                
-               player.Camera.Subject = math.Random(game.Players.playerListValues.TerroristTeam:GetChildren)
+               game.Workspace.player.Camera.Subject = math.Random(game.Players.playerListValues.TerroristTeam:GetChildren)
                
                
-               player.Camera.IsSpectating = true
+               game.Workspace.Camera.IsSpectating = true
                
           elseif plr.TeamColor == "Dark Blue" then
                Player.OrderDied = game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value + game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value
                game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value = game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value - 1
+               
+               game.Workspace.Camera.Subject = math.Random(game.Players.playerListValues.CounterTerroristTeam:GetChildren)
+               
+               
+               game.Workspace.Camera.IsSpectating = true
           end
           
      end)
@@ -305,6 +310,177 @@ if game.ServerStorage.Gamemode == "Competative" then
                
                game.ServerStorage.CurrentRoundValues.State = "DuringRound"
                game.ServerStorage.CurrentRoundValues.Time = 120
+               
+          end
+     end
+end
+
+
+if game.ServerStorage.Gamemode == "Casual" then
+     function humanoid.Died()
+          local function Ragdoll() = [
+               local PLAYER = game.Workspace[plr.Name]
+               
+               
+               local LArmWeld = Instance.new("Attachment")
+               local RArmWeld = Instance.new("Attachment")
+               local LLegWeld = Instance.new("Attachment")
+               local RLegWeld = Instance.new("Attachment")
+               local HeadWeld = Instance.new("Attachment")
+               
+               
+               --R15
+                    --ARM
+               local LlowerArmWeld = Instance.new("Attachment")
+               local LHandWeld = Instance.new("Attachment")
+               local RlowerArmWeld = Instance.new("Attachment")
+               local RHandWeld = Instance.new("Attachment")
+               
+                    --LEG
+               local LFootWeld = Instance.new("Attachment")
+               local LlowerLegWeld = Instance.new("Attachment")
+               local RFootWeld = Instance.new("Attachment")
+               local RlowerLegWeld = Instance.new("Attachment")
+               
+               local UpperTorsoWeld = Instance.new("Attachment")
+               
+               
+               if game.Players.localPlayer.IsR6 == true then
+                    
+                    LArmWeld.Parent = PLAYER.LeftArm
+                    RArmWeld.Parent = PLAYER.RightArm
+                    LLegWeld.Parent = PLAYER.LeftLeg
+                    RLegWeld.Parent = PLAYER.RightLeg
+                    HeadWeld.Parent = PLAYER.Head
+                    
+                    LArmWeld.Part2 = PLAYER.Torso
+                    RArmWeld.Part2 = PLAYER.Torso
+                    LLegWeld.Part2 = PLAYER.Torso
+                    RLegWeld.Part2 = PLAYER.Torso
+                    HeadWeld.Part2 = PLAYER.Torso
+                    
+                    PLAYER:WaitForChildren("Part").Anchored = false
+                    
+               elseif game.Players.localPlayer.IsR6 == false then
+                    
+                    LArmWeld.Parent = PLAYER.LeftUpperArm
+                    RArmWeld.Parent = PLAYER.RightUpperArm
+                    LLegWeld.Parent = PLAYER.LeftUpperLeg
+                    RLegWeld.Parent = PLAYER.RightUpperLeg
+                    HeadWeld.Parent = PLAYER.Head
+                    
+                    LlowerArmWeld.Parent = PLAYER.LeftLowerArm
+                    LHandWeld.Parent = PLAYER.LeftHand
+                    RlowerArmWeld.Parent = PLAYER.RightLowerArm
+                    RHandWeld.Parent = PLAYER.RightHand
+                    
+                    LlowerLegWeld.Parent = PLAYER.LeftLowerLeg
+                    RlowerLegWeld.Parent = PLAYER.RightLowerLeg
+                    LFootWeld.Parent = PLAYER.LeftFoot
+                    RFootWeld.Parent = PLAYER.RightFoot
+                    
+                    UpperTorsoWeld.Parent = PLAYER.UpperTorso
+                    
+                    
+                    
+                    
+                    LArmWeld.Part2 = PLAYER.UpperTorso
+                    RArmWeld.Part2 = PLAYER.UpperTorso
+                    LLegWeld.Part2 = PLAYER.UpperTorso
+                    RLegWeld.Part2 = PLAYER.UpperTorso
+                    HeadWeld.Part2 = PLAYER.UpperTorso
+                    
+                    LlowerArmWeld.Part2 = PLAYER.LeftUpperArm
+                    LHandWeld.Part2 = PLAYER.LeftLowerArm
+                    RlowerArmWeld.Part2 = PLAYER.RightUpperArm
+                    RHandWeld.Part2 = PLAYER.RightLowerArm
+                    
+                    LlowerLegWeld.Part2 = PLAYER.LeftUpperLeg
+                    RlowerLegWeld.Part2 = PLAYER.RightUpperLeg
+                    LFootWeld.Part2 = PLAYER.LeftLowerLeg
+                    RFootWeld.Part2 = PLAYER.RightLowerLeg
+                    
+                    UpperTorsoWeld.Part2 = PLAYER.LowerTorso
+                    
+               end
+               
+          ]
+          
+          player:BreakAllJoints()
+          
+          function Ragdoll()
+          
+          
+          plr.Backpack:ClearAllChildren()
+          
+          
+          player:GetChildren().Transparancy = 1
+          
+          player.IsNoClipping = true
+          
+          if plr.TeamColor == "Tan" then
+               Player.OrderDied = game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value + game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value
+               game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value = game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value - 1
+               
+               player.Camera.IsSpectating = true
+               
+          elseif plr.TeamColor == "Dark Blue" then
+               Player.OrderDied = game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value + game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value
+               game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value = game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value - 1
+          end
+          
+     end)
+     
+     
+     if game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value == <0 then
+          if game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value == <0 then
+               game.ServerStorage.CurrentRoundValues.Time = 7
+               
+               game.ServerStorage.CurrentRoundValues.State = "RoundEndInterm"
+               
+               if game.ServerStorage.CurrentRoundValues.CounterTerroristsAlive.Value == 1 then
+                    if game.RoundTimers.BombPlanted == N then
+                         Plr.PlayerGUI.WinningScreens.CounterTerroristsWin.Visible = true
+                    elseif game.ServerStorage.CurrentRoundValues.BombPlanted == Y then
+                         
+                         if game.ServerStorage.CurrentRoundValues.Timer.BOMBTIMER == 0 then
+                              Plr.PlayerGUI.WinningScreens.TerroristsWin.Visible = true
+                         elseif game.ServerStorage.CurrentRoundValues.BombDefused == Y
+                              Plr.PlayerGUI.WinningScreens.CounterTerroristsWin.Visible = true
+                         end
+                         
+                    end
+               end
+               
+               
+               if game.ServerStorage.CurrentRoundValues.TerroristsAlive.Value == 1 then
+                    Plr.PlayerGUI.WinningScreens.TerroristsWin.Visible = true
+               end
+               
+               wait(7)
+               
+               
+               if plr.TeamColor = "Tan" then
+                    Player.Position = math.Random(game.Workspace:WaitForChild(TSpawn:GetChildren().Position))
+               
+               elseif plr.TeamColor == "Dark Blue"
+                    Player.Position = math.Random(game.Workspace:WaitForChild(CTSpawn:GetChildren().Position))
+               end
+               
+               
+               game.Workspace.Camera.IsSpectating = false
+               game.Workspace.Camera.Subject = player.Head
+               
+               game.ServerStorage.CurrentRoundValues.State = "BeforeRound"
+               game.ServerStorage.CurrentRoundValues.Time = 10
+               game.ServerStorage.BuyTimeRemaining = 55
+               Plr.PlayerGUI.WinningScreens.TerroristsWin.Visible = false
+               Plr.PlayerGUI.WinningScreens.CounterTerroristsWin.Visible = false
+               
+               wait(10)
+               
+               game.ServerStorage.CurrentRoundValues.State = "DuringRound"
+               game.ServerStorage.CurrentRoundValues.Time = 150
                
           end
      end
