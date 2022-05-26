@@ -118,9 +118,9 @@ end)
 
 
 UIS.InputEnded:Connect(function(input)
-     if input.UserInputType == Enum.UserInputType.KeyboardX then               
-          
-          
-          
+     if input.UserInputType == Enum.UserInputType.KeyboardM then               
+          if game.ServerStorage.Gamemode == ["Casual", "Deathmatch", "WarGames"] then
+               plr.PlayerGUI.
+               
      end
 end)
